@@ -303,15 +303,6 @@ export function Shell({ admin = false }) {
           )}
           <Outlet />
         </main>
-        {admin && (
-          <footer className="workspace-footer">
-            <span>StockXEarn · A clearer financial perspective.</span>
-            <div>
-              <Link to="/terms">Terms</Link>
-              <Link to="/privacy">Privacy</Link>
-            </div>
-          </footer>
-        )}
       </div>
       <nav className="bottom-nav" aria-label="Quick navigation">
         {(admin
