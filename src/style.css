@@ -4898,3 +4898,454 @@ progress::-moz-progress-bar {
   }
 }
 
+/* Narrow-screen consistency: 425px, 375px, 320px and below */
+@media (max-width: 425px) {
+  html,
+  body,
+  #root,
+  .workspace,
+  .workspace-main,
+  .auth-page {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  .topbar,
+  .member-workspace .topbar,
+  .admin-workspace .topbar {
+    min-width: 0;
+  }
+  .topbar .row,
+  .member-workspace .topbar .row,
+  .admin-workspace .topbar .row {
+    min-width: 0;
+  }
+  .page-content,
+  .member-workspace .page-content,
+  .admin-workspace .page-content {
+    width: 100%;
+    min-width: 0;
+  }
+  .card,
+  .member-workspace .card,
+  .admin-workspace .card {
+    min-width: 0;
+  }
+  .row,
+  .member-workspace .row,
+  .admin-workspace .row {
+    min-width: 0;
+  }
+  .page-head,
+  .member-workspace .page-head,
+  .admin-workspace .page-head {
+    width: 100%;
+  }
+  .page-head h1,
+  .member-workspace .page-head h1,
+  .admin-workspace .page-head h1 {
+    overflow-wrap: anywhere;
+  }
+  .page-head p,
+  .member-workspace .page-head p,
+  .admin-workspace .page-head p {
+    max-width: 100%;
+  }
+  .member-workspace .topbar {
+    padding-inline: 12px;
+  }
+  .member-workspace .topbar .avatar {
+    width: 32px;
+    height: 32px;
+  }
+  .member-workspace .topbar .notification-button {
+    width: 34px;
+    height: 34px;
+  }
+  .member-workspace .bottom-nav {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+  .member-workspace .bottom-nav > a,
+  .member-workspace .bottom-nav > button {
+    min-width: 0;
+  }
+  .member-workspace .bottom-nav span {
+    max-width: 62px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .member-workspace .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .member-workspace .stat {
+    min-width: 0;
+  }
+  .member-workspace .stat > strong {
+    overflow-wrap: anywhere;
+  }
+  .member-workspace .wallet-hero .row.wrap {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .member-workspace .wallet-hero .btn {
+    width: 100%;
+    min-width: 0;
+    padding-inline: 8px;
+  }
+  .member-workspace .currency-equivalent,
+  .wallet-balance small {
+    overflow-wrap: anywhere;
+  }
+  .member-workspace .plan-metrics {
+    gap: 4px;
+  }
+  .member-workspace .plan-metrics > div {
+    padding-inline: 4px;
+  }
+  .member-workspace .plan-metrics strong {
+    font-size: 11px;
+  }
+  .member-workspace .detail-grid,
+  .member-workspace .form-grid,
+  .member-workspace .two-col {
+    grid-template-columns: 1fr;
+  }
+  .member-workspace .detail-grid > .card {
+    width: 100%;
+  }
+  .member-workspace .details-list > div {
+    gap: 10px;
+  }
+  .member-workspace .details-list dt,
+  .member-workspace .details-list dd {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+  .member-workspace .redeem-card form.row,
+  .member-workspace .search-form {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .member-workspace .redeem-card form input,
+  .member-workspace .redeem-card form .btn,
+  .member-workspace .search-form input,
+  .member-workspace .search-form .btn {
+    width: 100%;
+  }
+  .member-workspace .records-card > .row.between,
+  .member-workspace .ledger-table + .pager,
+  .member-workspace .records-card > .row.between {
+    align-items: center;
+  }
+  .member-workspace .records-card select {
+    max-width: 168px;
+  }
+  .member-workspace .ledger-table tr,
+  .member-workspace .ledger-table thead {
+    grid-template-columns: minmax(76px, 1.2fr) minmax(60px, 0.78fr) minmax(66px, 0.86fr) minmax(82px, 1.06fr);
+  }
+  .admin-workspace .topbar {
+    padding-inline: 12px;
+  }
+  .admin-workspace .topbar .avatar,
+  .admin-workspace .topbar .icon-btn {
+    width: 34px;
+    height: 34px;
+  }
+  .admin-workspace .topbar-user {
+    display: none;
+  }
+  .admin-workspace .page-content {
+    padding: 24px 10px 40px;
+  }
+  .admin-workspace .overview-today-grid,
+  .admin-workspace .overview-finance-grid,
+  .admin-workspace .overview-account-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .admin-workspace .overview-stat,
+  .admin-workspace .overview-account-card {
+    min-width: 0;
+    padding-inline: 12px;
+  }
+  .admin-workspace .overview-stat strong,
+  .admin-workspace .overview-account-card strong {
+    overflow-wrap: anywhere;
+  }
+  .admin-workspace .review-status-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .admin-workspace .review-status-button {
+    min-width: 0;
+    padding-inline: 6px;
+  }
+  .admin-workspace .table-wrap {
+    max-width: 100%;
+  }
+  .admin-workspace table {
+    min-width: 640px;
+  }
+  .auth-page {
+    min-height: 100dvh;
+  }
+  .auth-form {
+    width: 100%;
+    min-height: 100dvh;
+  }
+  .auth-inner {
+    width: 100%;
+    min-width: 0;
+  }
+  .auth-inner input,
+  .auth-inner .field,
+  .auth-inner form {
+    min-width: 0;
+  }
+  .auth-inner input {
+    width: 100%;
+  }
+  .public-header {
+    min-width: 0;
+  }
+  .public-header .brand,
+  .public-header .brand-logo {
+    max-width: 150px;
+  }
+  .public-header .brand-logo {
+    width: 150px;
+  }
+  .hero-copy > .row,
+  .hero-copy > .row .btn {
+    width: 100%;
+  }
+  .three-col,
+  .split,
+  .detail-grid,
+  .form-grid,
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+  .three-col,
+  .member-list,
+  .rank-grid {
+    min-width: 0;
+  }
+  .table-wrap,
+  .table-wrap table {
+    max-width: 100%;
+  }
+  .btn,
+  .text-link {
+    min-width: 0;
+  }
+  img,
+  svg,
+  canvas {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 375px) {
+  .page-content,
+  .member-workspace .page-content,
+  .admin-workspace .page-content {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  .member-workspace .page-head h1,
+  .admin-workspace .page-head h1 {
+    font-size: 26px;
+  }
+  .member-workspace .page-head p,
+  .admin-workspace .page-head p {
+    font-size: 10px;
+  }
+  .member-workspace .stats,
+  .admin-workspace .overview-today-grid,
+  .admin-workspace .overview-finance-grid,
+  .admin-workspace .overview-account-grid {
+    gap: 7px;
+  }
+  .member-workspace .stat,
+  .admin-workspace .overview-stat,
+  .admin-workspace .overview-account-card {
+    padding: 12px 10px;
+  }
+  .member-workspace .stat > strong,
+  .admin-workspace .overview-stat strong,
+  .admin-workspace .overview-account-card strong {
+    font-size: 17px;
+  }
+  .member-workspace .wallet-hero {
+    padding: 18px 14px;
+  }
+  .member-workspace .wallet-value {
+    font-size: 32px;
+  }
+  .member-workspace .wallet-deposit,
+  .member-workspace .wallet-balance {
+    min-width: 0;
+  }
+  .member-workspace .bottom-nav {
+    padding-inline: 2px;
+  }
+  .member-workspace .bottom-nav span {
+    max-width: 55px;
+    font-size: 7px;
+  }
+  .member-workspace .ledger-table tr,
+  .member-workspace .ledger-table thead {
+    grid-template-columns: minmax(70px, 1.16fr) minmax(54px, 0.72fr) minmax(62px, 0.84fr) minmax(76px, 1fr);
+    gap: 4px;
+  }
+  .member-workspace .ledger-table tr {
+    padding-inline: 6px;
+  }
+  .member-workspace .ledger-table th {
+    font-size: 6px;
+  }
+  .member-workspace .ledger-table td strong {
+    font-size: 9px;
+  }
+  .member-workspace .ledger-table td small,
+  .member-workspace .ledger-table td:last-child {
+    font-size: 7px;
+  }
+  .admin-workspace .review-status-buttons {
+    gap: 5px;
+  }
+  .admin-workspace .review-status-button {
+    font-size: 9px;
+  }
+  .admin-workspace .review-status-button b {
+    min-width: 22px;
+    height: 22px;
+  }
+  .auth-form {
+    padding: 12px 8px 20px;
+  }
+  .auth-inner {
+    padding: 18px 14px;
+  }
+  .auth-inner h1 {
+    font-size: 27px;
+  }
+  .auth-mobile-brand .brand-logo {
+    width: 138px;
+    height: 44px;
+  }
+  .public-header .brand-logo {
+    width: 128px;
+  }
+  .public-header .btn.small {
+    padding-inline: 8px;
+  }
+}
+
+@media (max-width: 320px) {
+  .member-workspace .page-content,
+  .admin-workspace .page-content,
+  .page-content {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+  .member-workspace .topbar {
+    padding-inline: 8px;
+  }
+  .member-workspace .topbar .avatar {
+    width: 30px;
+    height: 30px;
+  }
+  .member-workspace .topbar .notification-button {
+    width: 31px;
+    height: 31px;
+  }
+  .member-workspace .bottom-nav span {
+    max-width: 48px;
+    font-size: 6.5px;
+  }
+  .member-workspace .bottom-nav svg {
+    width: 18px;
+  }
+  .member-workspace .stats,
+  .admin-workspace .overview-today-grid,
+  .admin-workspace .overview-finance-grid,
+  .admin-workspace .overview-account-grid {
+    grid-template-columns: 1fr;
+  }
+  .member-workspace .stat,
+  .admin-workspace .overview-stat,
+  .admin-workspace .overview-account-card {
+    min-height: 82px;
+  }
+  .member-workspace .wallet-hero .row.wrap {
+    grid-template-columns: 1fr;
+  }
+  .member-workspace .wallet-hero .btn {
+    height: 42px;
+  }
+  .member-workspace .portfolio-feature > div {
+    max-width: 86%;
+  }
+  .member-workspace .portfolio-feature h2 {
+    font-size: 22px;
+  }
+  .member-workspace .ledger-table tr,
+  .member-workspace .ledger-table thead {
+    grid-template-columns: minmax(68px, 1fr) minmax(52px, 0.72fr) minmax(58px, 0.82fr) minmax(68px, 1fr);
+  }
+  .member-workspace .ledger-table th {
+    letter-spacing: 0.04em;
+  }
+  .member-workspace .ledger-table td strong {
+    font-size: 8.5px;
+  }
+  .member-workspace .ledger-table td small,
+  .member-workspace .ledger-table td:last-child {
+    font-size: 6.5px;
+  }
+  .admin-workspace .review-status-buttons {
+    grid-template-columns: 1fr;
+  }
+  .admin-workspace .review-status-button {
+    width: 100%;
+  }
+  .auth-form {
+    padding: 8px 6px 16px;
+  }
+  .auth-inner {
+    padding: 16px 12px;
+  }
+  .auth-inner h1 {
+    font-size: 25px;
+  }
+  .auth-inner input {
+    height: 48px;
+  }
+  .auth-inner .password-toggle {
+    top: 29px;
+  }
+  .auth-mobile-brand .brand-logo {
+    width: 128px;
+  }
+  .public-header {
+    padding-inline: 3%;
+  }
+  .public-header .brand-logo {
+    width: 112px;
+  }
+  .public-header .btn.small {
+    padding: 8px;
+  }
+  .hero h1,
+  .public-section h2,
+  .closing h2 {
+    font-size: 30px;
+  }
+  .hero-foot,
+  .brand-band {
+    flex-wrap: wrap;
+  }
+}
+
