@@ -3435,12 +3435,12 @@ progress::-moz-progress-bar {
 }
 .admin-panel-mark strong,
 .admin-panel-mark small { display: block; }
-.admin-panel-mark strong { color: var(--admin-ink); font-size: 14px; }
-.admin-panel-mark small { color: var(--admin-muted); font-size: 10px; margin-top: 1px; }
+.admin-panel-mark strong { color: var(--admin-ink); font-size: 16px; }
+.admin-panel-mark small { color: var(--admin-muted); font-size: 12px; margin-top: 2px; }
 .admin-workspace .nav-label {
   padding: 0 32px 12px;
   color: var(--rose);
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: .18em;
 }
@@ -3452,7 +3452,7 @@ progress::-moz-progress-bar {
   margin: 4px 0;
   border-radius: 12px;
   color: var(--admin-muted);
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
 }
 .admin-workspace .sidebar nav a:hover {
@@ -3899,18 +3899,24 @@ progress::-moz-progress-bar {
 .member-workspace .nav-label {
   color: #9b7382;
   padding: 0 22px 9px;
+  font-size: 11px;
+  font-weight: 700;
 }
 .member-workspace .sidebar nav {
   padding: 0 11px 12px;
 }
 .member-workspace .sidebar nav a {
-  min-height: 40px;
+  min-height: 48px;
   border-radius: 9px;
   margin: 2px 0;
-  padding: 8px 11px;
-  font-size: 10px;
+  padding: 11px 13px;
+  font-size: 14px;
+  font-weight: 600;
   color: #786a71;
 }
+.member-workspace .sidebar nav a svg { width: 20px; height: 20px; }
+.member-workspace .sidebar-footer > a,
+.member-workspace .sidebar-footer > button { font-size: 13px; }
 .member-workspace .sidebar nav a.active {
   background: #f5e9ed;
   box-shadow: inset 3px 0 var(--burgundy);
