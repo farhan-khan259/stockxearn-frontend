@@ -5194,23 +5194,45 @@ progress::-moz-progress-bar {
     max-width: 55px;
     font-size: 7px;
   }
-  .member-workspace .ledger-table tr,
   .member-workspace .ledger-table thead {
-    grid-template-columns: minmax(70px, 1.16fr) minmax(54px, 0.72fr) minmax(62px, 0.84fr) minmax(76px, 1fr);
-    gap: 4px;
+    display: none;
   }
   .member-workspace .ledger-table tr {
-    padding-inline: 6px;
-  }
-  .member-workspace .ledger-table th {
-    font-size: 6px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 8px;
+    align-items: start;
+    padding: 12px 10px;
   }
   .member-workspace .ledger-table td strong {
-    font-size: 9px;
+    font-size: 11px;
   }
   .member-workspace .ledger-table td small,
   .member-workspace .ledger-table td:last-child {
+    font-size: 9px;
+  }
+  .member-workspace .ledger-table td::before {
+    display: block;
+    margin-bottom: 3px;
+    color: #9a8991;
     font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+  }
+  .member-workspace .ledger-table td:nth-child(1)::before {
+    content: "Activity";
+  }
+  .member-workspace .ledger-table td:nth-child(2)::before {
+    content: "Wallet";
+  }
+  .member-workspace .ledger-table td:nth-child(3)::before {
+    content: "Amount";
+  }
+  .member-workspace .ledger-table td:nth-child(4)::before {
+    content: "Date";
+  }
+  .member-workspace .ledger-table td:nth-child(2) {
+    white-space: normal;
   }
   .admin-workspace .review-status-buttons {
     gap: 5px;
@@ -5291,19 +5313,12 @@ progress::-moz-progress-bar {
   .member-workspace .portfolio-feature h2 {
     font-size: 22px;
   }
-  .member-workspace .ledger-table tr,
-  .member-workspace .ledger-table thead {
-    grid-template-columns: minmax(68px, 1fr) minmax(52px, 0.72fr) minmax(58px, 0.82fr) minmax(68px, 1fr);
-  }
-  .member-workspace .ledger-table th {
-    letter-spacing: 0.04em;
-  }
   .member-workspace .ledger-table td strong {
-    font-size: 8.5px;
+    font-size: 10.5px;
   }
   .member-workspace .ledger-table td small,
   .member-workspace .ledger-table td:last-child {
-    font-size: 6.5px;
+    font-size: 8.5px;
   }
   .admin-workspace .review-status-buttons {
     grid-template-columns: 1fr;
@@ -5346,6 +5361,82 @@ progress::-moz-progress-bar {
   .hero-foot,
   .brand-band {
     flex-wrap: wrap;
+  }
+}
+
+/* Preserve native, horizontally scrollable tables on narrow screens. */
+@media (max-width: 800px) {
+  .member-workspace .ledger-table,
+  .member-workspace .records-card .table-wrap,
+  .admin-workspace .table-wrap {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+  .member-workspace .ledger-table table,
+  .member-workspace .records-card table,
+  .admin-workspace table {
+    width: max-content;
+    min-width: 620px;
+  }
+  .member-workspace .ledger-table thead,
+  .member-workspace .ledger-table tbody,
+  .member-workspace .ledger-table tr,
+  .member-workspace .ledger-table th,
+  .member-workspace .ledger-table td,
+  .member-workspace .records-card thead,
+  .member-workspace .records-card tbody,
+  .member-workspace .records-card tr,
+  .member-workspace .records-card th,
+  .member-workspace .records-card td {
+    display: table-cell;
+  }
+  .member-workspace .ledger-table thead,
+  .member-workspace .records-card thead {
+    display: table-header-group;
+  }
+  .member-workspace .ledger-table tbody,
+  .member-workspace .records-card tbody {
+    display: table-row-group;
+  }
+  .member-workspace .ledger-table tr,
+  .member-workspace .records-card tr {
+    display: table-row;
+  }
+  .member-workspace .ledger-table th,
+  .member-workspace .ledger-table td,
+  .member-workspace .records-card th,
+  .member-workspace .records-card td {
+    width: auto;
+    min-width: 110px;
+    border-bottom: 1px solid #eee5e8;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 10px 12px;
+  }
+  .member-workspace .ledger-table td::before,
+  .member-workspace .records-card td::before {
+    display: none;
+  }
+  .member-workspace .ledger-table td:first-child,
+  .member-workspace .ledger-table td:first-child strong,
+  .member-workspace .records-card td:first-child,
+  .member-workspace .records-card td:first-child strong {
+    display: table-cell;
+    font-size: inherit;
+  }
+  .member-workspace .ledger-table tbody,
+  .member-workspace .records-card tbody {
+    gap: 0;
+  }
+  .member-workspace .records-card td:first-child,
+  .member-workspace .records-card td:nth-child(2),
+  .member-workspace .records-card td:nth-child(4),
+  .member-workspace .records-card td:first-child small {
+    border-top: 0;
+    padding: 10px 12px;
   }
 }
 
