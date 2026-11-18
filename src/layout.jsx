@@ -224,7 +224,19 @@ export function Shell({ admin = false }) {
                 </div>
               </>
             ) : (
-              <Brand />
+              <>
+                <Brand />
+                <Link to="/app/profile" className="avatar" title="My account">
+                  {session.user?.avatar ? (
+                    <PrivateImage
+                      path={session.user.avatar}
+                      alt="Your profile photo"
+                    />
+                  ) : (
+                    session.user?.name?.slice(0, 1).toUpperCase()
+                  )}
+                </Link>
+              </>
             )}
           </div>
           <div className="row">
@@ -247,18 +259,6 @@ export function Shell({ admin = false }) {
               <Bell size={20} />
               {!admin && notifications.data?.unread > 0 && <i />}
             </Link>
-            {!admin && (
-              <Link to="/app/profile" className="avatar" title="My account">
-                {session.user?.avatar ? (
-                  <PrivateImage
-                    path={session.user.avatar}
-                    alt="Your profile photo"
-                  />
-                ) : (
-                  session.user?.name?.slice(0, 1).toUpperCase()
-                )}
-              </Link>
-            )}
             {admin && (
               <>
                 <div className="avatar" title="My account">
