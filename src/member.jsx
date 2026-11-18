@@ -305,8 +305,9 @@ export function Plans() {
   return (
     <>
       <PageHead
-        title="Choose your next chapter."
-        eyebrow="THE STOCKXEARN COLLECTION"
+        title="Investment plans"
+        eyebrow="EXPLORE THE COLLECTION"
+        description="Choose a plan, review its terms and grow your portfolio at your own pace."
       />
       <Load resource={r}>
         {(plans) => (
@@ -374,14 +375,15 @@ export function PlanDetail() {
   return (
     <>
       <Link className="text-link" to="/app/plans">
-        ← All plans
+        ← Back to plans
       </Link>
       <Load resource={r}>
         {(p) => (
           <>
             <PageHead
+              eyebrow="PLAN OVERVIEW"
               title={p.name}
-              description="Review the complete terms before purchasing."
+              description="Review the plan terms and available balance before purchasing."
             />
             <div className="detail-grid">
               <img className="detail-image" src={p.image} alt={p.name} />
