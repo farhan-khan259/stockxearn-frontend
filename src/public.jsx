@@ -458,24 +458,27 @@ export function Auth({ register = false, admin = false }) {
         <Brand />
         <img src="/images/hero.webp" alt="StockXEarn financial architecture" />
         <div>
-          <span className="eyebrow">A NEW PERSPECTIVE</span>
+          <span className="eyebrow">A CLEARER FINANCIAL PERSPECTIVE</span>
           <h1>
-            Your next chapter.
+            Grow with clarity.
             <br />
-            <em>Clearly connected.</em>
+            <em>Invest with confidence.</em>
           </h1>
           <p>
-            Your plans, your records and your community, thoughtfully brought
-            together.
+            Manage plans, deposits, earnings and rewards from one refined workspace.
           </p>
+          <div className="auth-art-trust">
+            <span><ShieldCheck size={16} /> Secure access</span>
+            <span><Wallet size={16} /> Clear records</span>
+          </div>
         </div>
-        <small>Investing involves risk. Read the participation terms.</small>
+        <small>Financial participation involves risk. Review the terms before continuing.</small>
       </aside>
       <div className="auth-form">
-        <Link className="text-link" to="/">
-          ← Back to StockXEarn
-        </Link>
         <div className="auth-inner">
+          <div className="auth-mobile-brand">
+            <Brand />
+          </div>
           <span className="eyebrow">
             {admin
               ? "ADMINISTRATION"
@@ -506,6 +509,7 @@ export function Auth({ register = false, admin = false }) {
                 onChange={change}
                 autoComplete="name"
                 maxLength={160}
+                placeholder="Enter your full name"
               />
             )}
             <Field
@@ -527,6 +531,7 @@ export function Auth({ register = false, admin = false }) {
                 minLength={register ? 10 : 1}
                 maxLength={128}
                 autoComplete={register ? "new-password" : "current-password"}
+                placeholder={register ? "Create a strong password" : "Enter your password"}
               />
               <button
                 type="button"
@@ -547,6 +552,7 @@ export function Auth({ register = false, admin = false }) {
                   onChange={change}
                   minLength={10}
                   autoComplete="new-password"
+                  placeholder="Re-enter your password"
                 />
                 <Field
                   label="Referral code"
@@ -554,6 +560,7 @@ export function Auth({ register = false, admin = false }) {
                   value={form.referralCode}
                   onChange={change}
                   maxLength={24}
+                  placeholder="Enter referral code"
                 />
                 <label className="check-label">
                   <input
@@ -616,28 +623,47 @@ export function Auth({ register = false, admin = false }) {
 export function Forgot() {
   const s = useData("/public/settings");
   return (
-    <div className="legal-page">
-      <Brand />
-      <div className="card">
-        <span className="eyebrow">ACCOUNT RECOVERY</span>
-        <h1>Let’s get you back in.</h1>
-        <p>
-          Contact support from your registered number. After verifying account
-          ownership, an administrator can provide a temporary password. You must
-          change it after signing in.
-        </p>
-        <a
-          className="btn"
-          href={`https://wa.me/${(s.data?.supportPhone || "+923379092183").replace(/\D/g, "")}?text=I%20need%20help%20resetting%20my%20StockXEarn%20password`}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <MessageCircle size={18} />
-          Contact support
-        </a>
-        <p>
-          <Link to="/login">Return to sign in</Link>
-        </p>
+    <div className="auth-page recovery-page">
+      <aside className="auth-art">
+        <Brand />
+        <img src="/images/hero.webp" alt="StockXEarn account recovery" />
+        <div>
+          <span className="eyebrow">ACCOUNT RECOVERY</span>
+          <h1>
+            Secure access.
+            <br />
+            <em>Restored safely.</em>
+          </h1>
+          <p>
+            Our support team verifies ownership before account access is restored.
+          </p>
+        </div>
+        <small>Never share passwords or banking PINs with support.</small>
+      </aside>
+      <div className="auth-form">
+        <div className="auth-inner recovery-inner">
+          <div className="auth-mobile-brand">
+            <Brand />
+          </div>
+          <span className="eyebrow">PASSWORD RECOVERY</span>
+          <h1>Let’s get you back in.</h1>
+          <p>
+            Contact support from your registered number. After verifying account
+            ownership, an administrator can provide a temporary password.
+          </p>
+          <a
+            className="btn recovery-button"
+            href={`https://wa.me/${(s.data?.supportPhone || "+923379092183").replace(/\D/g, "")}?text=I%20need%20help%20resetting%20my%20StockXEarn%20password`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <MessageCircle size={18} />
+            Contact support
+          </a>
+          <p className="auth-switch">
+            Remembered your password? <Link to="/login">Sign in</Link>
+          </p>
+        </div>
       </div>
     </div>
   );
