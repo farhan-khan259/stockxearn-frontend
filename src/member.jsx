@@ -1141,7 +1141,7 @@ export function CommunityReward() {
           <h2>
             Stay connected.
             <br />
-            Earn $10.
+            Earn $0.10.
           </h2>
           <p>
             Join our official channel, then upload a screenshot showing that you
@@ -1163,7 +1163,7 @@ export function CommunityReward() {
             <ShieldCheck size={21} />
             <p>
               Only one attempt is allowed. Rejected submissions are permanently
-              locked. Approval credits $10 to your withdrawable balance;
+              locked. Approval credits $0.10 to your withdrawable balance;
               withdrawal rules still apply.
             </p>
           </div>
@@ -1174,7 +1174,7 @@ export function CommunityReward() {
                   <Badge status={d.status} />
                   <h3>
                     {d.status === "approved"
-                      ? "Your $10 reward was credited"
+                      ? "Your $0.10 reward was credited"
                       : d.status === "rejected"
                         ? "This reward is permanently locked"
                         : "Your screenshot is under review"}

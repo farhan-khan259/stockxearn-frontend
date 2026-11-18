@@ -781,7 +781,7 @@ export function Reviews({ type }) {
           type === "withdrawals"
             ? "Send the external payment before marking a withdrawal paid. Rejection refunds the reserved funds."
             : type === "community"
-              ? "Each user has one attempt. Approval credits $10; rejection locks the reward permanently."
+              ? "Each user has one attempt. Approval credits $0.10; rejection locks the reward permanently."
               : "Verify the actual transfer against its transaction ID and screenshot before approval."
         }
       />
@@ -836,7 +836,7 @@ export function Reviews({ type }) {
                           </td>
                           <td>
                             {type === "community" ? (
-                              money(1000)
+                              money(10)
                             ) : type === "deposits" ? (
                               <>
                                 <strong>{money(x.creditedAmount || Math.floor(x.amount / 280))}</strong>
@@ -930,7 +930,7 @@ function ReviewModal({ item, type, onClose, onSaved }) {
       </p>
       <strong className="detail-price">
         {type === "community"
-          ? money(1000)
+          ? money(10)
           : type === "deposits"
             ? money(item.creditedAmount || Math.floor(item.amount / 280))
             : money(item.amount)}

@@ -740,7 +740,7 @@ export function Legal({ privacy = false }) {
             </p>
             <p>
               Community Reward permits one screenshot submission. Approval
-              credits $10 once. Rejection permanently locks the attempt.
+              credits $0.10 once. Rejection permanently locks the attempt.
               Reward Codes are subject to expiry, availability, an
               administrator-defined total claim limit and one redemption per
               user per code. Rewards do not bypass withdrawal requirements.
