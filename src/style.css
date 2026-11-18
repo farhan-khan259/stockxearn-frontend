@@ -3905,6 +3905,127 @@ progress::-moz-progress-bar {
   margin-bottom: 4px;
 }
 
+/* Auth entrance animation */
+.auth-inner {
+  animation: auth-fade 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.auth-inner > * {
+  animation: auth-slide 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.auth-inner > .eyebrow {
+  animation-delay: 0.04s;
+}
+.auth-inner > h1 {
+  animation-delay: 0.1s;
+}
+.auth-inner > p {
+  animation-delay: 0.16s;
+}
+.auth-inner form > * {
+  animation-delay: 0.22s;
+}
+.auth-inner form > *:nth-child(2) {
+  animation-delay: 0.28s;
+}
+.auth-inner form > *:nth-child(3) {
+  animation-delay: 0.34s;
+}
+.auth-inner form > *:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.auth-inner form > *:nth-child(5) {
+  animation-delay: 0.46s;
+}
+.auth-inner form > *:nth-child(6) {
+  animation-delay: 0.52s;
+}
+.auth-inner form > *:nth-child(7) {
+  animation-delay: 0.58s;
+}
+.auth-inner .btn {
+  animation-delay: 0.7s;
+}
+.auth-inner .auth-switch {
+  animation-delay: 0.78s;
+}
+.auth-inner > .text-link {
+  animation-delay: 0.84s;
+}
+@keyframes auth-fade {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes auth-slide {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Inline validation feedback */
+.auth-inner input:invalid,
+.auth-inner input:invalid + .password-toggle {
+  border-color: #c0392b;
+}
+.auth-inner input:invalid + .password-toggle {
+  color: #c0392b;
+}
+.auth-inner input:focus:invalid {
+  box-shadow: 0 0 0 4px #c0392b14;
+}
+.auth-inner input:valid {
+  border-color: #2e7d52;
+}
+.field-error {
+  display: block;
+  color: #c0392b;
+  font-size: 11px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  min-height: 13px;
+}
+.field-error.show {
+  animation: shake 0.32s ease;
+}
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-4px);
+  }
+  75% {
+    transform: translateX(4px);
+  }
+}
+
+/* Generous touch targets on mobile */
+.auth-inner .password-toggle {
+  touch-action: manipulation;
+}
+.auth-inner .check-label {
+  touch-action: manipulation;
+  cursor: pointer;
+}
+.auth-inner .check-label input {
+  cursor: pointer;
+}
+.auth-inner .btn {
+  touch-action: manipulation;
+  min-height: 48px;
+}
+
 @media (max-width: 1024px) {
   .auth-page {
     grid-template-columns: 38% 62%;
@@ -3956,9 +4077,25 @@ progress::-moz-progress-bar {
   }
   .auth-inner input {
     height: 50px;
+    font-size: 16px;
   }
   .auth-inner .password-toggle {
     top: 32px;
+  }
+  .auth-inner .check-label {
+    font-size: 11px;
+  }
+  .auth-inner .field > span {
+    font-size: 12px;
+  }
+  .auth-inner .auth-switch {
+    font-size: 12px;
+  }
+  .auth-inner > .text-link {
+    font-size: 12px;
+  }
+  .auth-inner .field {
+    margin-bottom: 16px;
   }
 }
 @media (max-width: 460px) {
@@ -3987,6 +4124,18 @@ progress::-moz-progress-bar {
   }
   .auth-inner .check-label {
     font-size: 10px;
+  }
+  .auth-inner .field > span {
+    font-size: 11px;
+  }
+  .auth-inner .auth-switch {
+    font-size: 11px;
+  }
+  .auth-inner > .text-link {
+    font-size: 11px;
+  }
+  .auth-inner .field {
+    margin-bottom: 14px;
   }
 }
 
