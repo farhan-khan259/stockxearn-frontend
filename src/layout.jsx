@@ -98,12 +98,14 @@ export function Shell({ admin = false }) {
     content.data && session.user
       ? `sx-popup-${session.user._id}-${content.data.popupVersion}`
       : null;
+  const isLaunchNotice =
+    content.data?.popupVersion === 2 &&
+    content.data?.popupTitle === "StockXEarn launches 20 November 2026";
   useEffect(() => {
     if (
       !admin &&
       popupKey &&
       content.data.popupEnabled &&
-      !localStorage.getItem(popupKey) &&
       !session.user?.mustChangePassword
     )
       setPopup(true);
@@ -115,7 +117,6 @@ export function Shell({ admin = false }) {
     session.user?.mustChangePassword,
   ]);
   function dismiss() {
-    if (popupKey) localStorage.setItem(popupKey, "1");
     setPopup(false);
   }
   const current =
@@ -324,27 +325,69 @@ export function Shell({ admin = false }) {
         </button>
       </nav>
       {popup && content.data && (
-        <Modal title={content.data.popupTitle} onClose={dismiss}>
-          {content.data.popupImage && (
-            <PrivateImage
-              path={content.data.popupImage}
-              alt="Welcome to StockXEarn"
-            />
+        <Modal
+          title={isLaunchNotice ? "" : content.data.popupTitle}
+          onClose={dismiss}
+        >
+          {isLaunchNotice ? (
+            <div className="launch-popup">
+              <p className="launch-popup-kicker">Platform launch</p>
+              <time className="launch-popup-date" dateTime="2026-11-20">
+                <strong>20</strong>
+                <span>November</span>
+                <b>2026</b>
+              </time>
+              <p className="launch-popup-message">{content.data.popupBody}</p>
+              <div className="launch-popup-facts" aria-label="Launch details">
+                <div>
+                  <span>Minimum deposit</span>
+                  <strong>$3.00</strong>
+                </div>
+                <div>
+                  <span>Minimum withdrawal</span>
+                  <strong>$1.00</strong>
+                </div>
+              </div>
+              <div className="launch-popup-actions">
+                <a
+                  className="btn"
+                  href={settings.data?.channelLink || content.data.popupLink}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={dismiss}
+                >
+                  <MessageCircle size={18} />
+                  Join WhatsApp channel
+                </a>
+                <button className="btn ghost" onClick={dismiss}>
+                  Continue to dashboard
+                </button>
+              </div>
+            </div>
+          ) : (
+            <>
+              {content.data.popupImage && (
+                <PrivateImage
+                  path={content.data.popupImage}
+                  alt="Welcome to StockXEarn"
+                />
+              )}
+              <p>{content.data.popupBody}</p>
+              {content.data.popupButton && (
+                <SafeLink
+                  className="btn"
+                  to={content.data.popupLink}
+                  onClick={dismiss}
+                >
+                  {content.data.popupButton}
+                  <ArrowUpRight size={17} />
+                </SafeLink>
+              )}
+              <button className="btn ghost" onClick={dismiss}>
+                Dismiss
+              </button>
+            </>
           )}
-          <p>{content.data.popupBody}</p>
-          {content.data.popupButton && (
-            <SafeLink
-              className="btn"
-              to={content.data.popupLink}
-              onClick={dismiss}
-            >
-              {content.data.popupButton}
-              <ArrowUpRight size={17} />
-            </SafeLink>
-          )}
-          <button className="btn ghost" onClick={dismiss}>
-            Dismiss
-          </button>
         </Modal>
       )}
     </div>

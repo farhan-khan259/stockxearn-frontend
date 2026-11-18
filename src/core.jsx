@@ -337,11 +337,11 @@ export function Modal({ title: heading, children, onClose }) {
         className="modal"
         role="dialog"
         aria-modal="true"
-        aria-label={heading}
+        aria-label={heading || "Dialog"}
         onClick={(e) => e.stopPropagation()}
       >
         <div className="row between">
-          <h2>{heading}</h2>
+          {heading && <h2>{heading}</h2>}
           <button
             className="icon-btn"
             aria-label="Close dialog"
