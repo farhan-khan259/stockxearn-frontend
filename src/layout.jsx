@@ -123,7 +123,11 @@ export function Shell({ admin = false }) {
       p ? location.pathname === `${base}/${p}` : location.pathname === base,
     )?.[0] || "Workspace";
   return (
-    <div className={`workspace ${admin ? "admin-workspace" : ""}`}>
+    <div
+      className={`workspace ${
+        admin ? "admin-workspace" : "member-workspace"
+      }`}
+    >
       {menu && (
         <button
           className="sidebar-scrim"
@@ -257,7 +261,7 @@ export function Shell({ admin = false }) {
             )}
             {admin && (
               <>
-                <Link to={`${base}/security`} className="avatar" title="My account">
+                <div className="avatar" title="My account">
                   {session.user?.avatar ? (
                     <PrivateImage
                       path={session.user.avatar}
@@ -266,7 +270,7 @@ export function Shell({ admin = false }) {
                   ) : (
                     session.user?.name?.slice(0, 1).toUpperCase()
                   )}
-                </Link>
+                </div>
                 <div className="topbar-user">
                   <strong>{session.user?.name}</strong>
                   <small>Administrator</small>

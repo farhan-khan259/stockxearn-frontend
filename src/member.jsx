@@ -152,6 +152,11 @@ export function Overview() {
             next = d.ranks.ranks.find((x) => !x.qualified);
           return (
             <>
+              <PageHead
+                eyebrow="MEMBER WORKSPACE"
+                title={`Good to see you, ${d.user.name?.split(" ")[0] || "Member"}.`}
+                description="Here is a clear view of your wallets, plans and recent progress."
+              />
               <div className="overview-grid">
                 <section className="wallet-hero">
                   <div className="row between">

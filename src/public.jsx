@@ -31,19 +31,11 @@ export function Brand({ light = false }) {
       className={`brand ${light ? "light" : ""}`}
       aria-label="StockXEarn home"
     >
-      <span className="brand-mark">
-        <svg viewBox="0 0 40 40" aria-hidden="true">
-          <path
-            d="M5 6h10l8 11L31 6h7L26 23l10 13H24l-7-10-7 10H2l12-17Z"
-            fill="currentColor"
-          />
-          <path d="m9 28 12-12h-7v-4h14v14h-4v-7L12 31Z" fill="#F2DACE" />
-        </svg>
-      </span>
-      <span>
-        StockX<span className="brand-accent">Earn</span>
-        <small>A CLEARER FINANCIAL PERSPECTIVE</small>
-      </span>
+      <img
+        className="brand-logo"
+        src="/images/logo-transparent.webp"
+        alt="StockXEarn"
+      />
     </Link>
   );
 }
