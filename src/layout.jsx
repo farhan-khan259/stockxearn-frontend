@@ -309,11 +309,13 @@ export function Shell({ admin = false }) {
       <nav className="bottom-nav" aria-label="Quick navigation">
         {(admin
           ? [adminNav[0], adminNav[1], adminNav[3], adminNav[4]]
-          : [memberNav[0], memberNav[1], memberNav[3], memberNav[6]]
+          : [memberNav[0], memberNav[1], memberNav[2], memberNav[6]]
         ).map(([label, p, I]) => (
           <NavLink end={!p} to={`${base}${p ? "/" + p : ""}`} key={label}>
             <I size={20} />
-            <span>{label.split(" ")[0]}</span>
+            <span>
+              {label === "My portfolio" ? "Portfolio" : label.split(" ")[0]}
+            </span>
           </NavLink>
         ))}
         <button onClick={() => setMenu(true)}>

@@ -372,7 +372,7 @@ export function Stats({ items }) {
 }
 export function Ledger({ items, admin = false }) {
   return items?.length ? (
-    <div className="table-wrap">
+    <div className={`table-wrap ledger-table ${admin ? "ledger-admin" : ""}`}>
       <table>
         <thead>
           <tr>

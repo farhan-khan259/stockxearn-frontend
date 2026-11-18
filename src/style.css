@@ -101,6 +101,98 @@
     display: inline-flex;
   }
 }
+@media (max-width: 800px) {
+  .member-workspace .ledger-table {
+    overflow: visible;
+  }
+  .member-workspace .ledger-table table,
+  .member-workspace .ledger-table tbody,
+  .member-workspace .ledger-table tr,
+  .member-workspace .ledger-table td {
+    display: block;
+    width: 100%;
+  }
+  .member-workspace .ledger-table thead {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(72px, 0.7fr) minmax(82px, 0.8fr) minmax(96px, 1fr);
+    gap: 8px;
+    padding: 0 12px 8px;
+  }
+  .member-workspace .ledger-table thead tr {
+    display: contents;
+  }
+  .member-workspace .ledger-table th {
+    display: block;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    color: #9a8991;
+    font-size: 7px;
+  }
+  .member-workspace .ledger-table tbody {
+    display: grid;
+    gap: 8px;
+  }
+  .member-workspace .ledger-table tr {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(72px, 0.7fr) minmax(82px, 0.8fr) minmax(96px, 1fr);
+    align-items: start;
+    gap: 8px;
+    border: 1px solid #eadfe3;
+    border-radius: 10px;
+    background: #fff;
+    padding: 11px 12px;
+  }
+  .member-workspace .ledger-table td {
+    min-width: 0;
+    border: 0;
+    padding: 0;
+    overflow-wrap: anywhere;
+  }
+  .member-workspace .ledger-table td strong {
+    display: block;
+    font-size: 10px;
+    line-height: 1.35;
+  }
+  .member-workspace .ledger-table td small {
+    display: block;
+    margin-top: 3px;
+    font-size: 8px;
+    line-height: 1.35;
+  }
+  .member-workspace .ledger-table td:last-child {
+    font-size: 8px;
+    line-height: 1.45;
+  }
+}
+@media (max-width: 460px) {
+  .member-workspace .ledger-table thead,
+  .member-workspace .ledger-table tr {
+    grid-template-columns: minmax(82px, 1.25fr) minmax(64px, 0.82fr) minmax(70px, 0.86fr) minmax(88px, 1.12fr);
+    gap: 6px;
+  }
+  .member-workspace .ledger-table tr {
+    min-height: 76px;
+    align-items: center;
+    padding: 10px 8px;
+  }
+  .member-workspace .ledger-table th {
+    font-size: 7px;
+  }
+  .member-workspace .ledger-table td strong {
+    font-size: 10px;
+  }
+  .member-workspace .ledger-table td small,
+  .member-workspace .ledger-table td:last-child {
+    font-size: 8px;
+  }
+  .member-workspace .ledger-table td:nth-child(2) {
+    white-space: nowrap;
+  }
+  .member-workspace .ledger-table td:last-child {
+    line-height: 1.38;
+  }
+}
 * {
   box-sizing: border-box;
 }
