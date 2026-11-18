@@ -50,7 +50,6 @@ import {
   AdminContent,
   AdminTickets,
   Reports,
-  AuditHistory,
 } from "./admin";
 class Boundary extends React.Component {
   state = { error: false };
@@ -79,11 +78,12 @@ function Guard({ admin = false }) {
   if (admin && user.role !== "admin") return <Navigate to="/app" replace />;
   if (!admin && user.role === "admin") return <Navigate to="/admin" replace />;
   if (
+    !admin &&
     user.mustChangePassword &&
-    location.pathname !== (admin ? "/admin/security" : "/app/security")
+    location.pathname !== "/app/security"
   )
     return (
-      <Navigate to={admin ? "/admin/security" : "/app/security"} replace />
+      <Navigate to="/app/security" replace />
     );
   return <Shell admin={admin} />;
 }
@@ -138,8 +138,6 @@ function App() {
         <Route path="content" element={<AdminContent />} />
         <Route path="tickets" element={<AdminTickets />} />
         <Route path="tickets/:id" element={<TicketThread admin />} />
-        <Route path="audit" element={<AuditHistory />} />
-        <Route path="security" element={<Security />} />
       </Route>
       <Route
         path="*"

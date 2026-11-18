@@ -71,8 +71,6 @@ const adminNav = [
   ["Content studio", "content", ScrollText],
   ["Support inbox", "tickets", LifeBuoy],
   ["Settings", "settings", Settings],
-  ["Audit history", "audit", ShieldCheck],
-  ["Admin security", "security", UserRound],
 ];
 export function Shell({ admin = false }) {
   const [menu, setMenu] = useState(false),
