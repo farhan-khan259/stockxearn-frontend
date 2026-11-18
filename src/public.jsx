@@ -662,110 +662,179 @@ export function Forgot() {
 }
 export function Legal({ privacy = false }) {
   return (
-    <div className="legal-page">
-      <Brand />
-      <article className="card">
-        <span className="eyebrow">STOCKXEARN / PARTICIPATION INFORMATION</span>
-        <h1>{privacy ? "Privacy notice" : "Terms & conditions"}</h1>
-        {privacy ? (
-          <>
-            <h2>Your information</h2>
-            <p>
-              StockXEarn stores your name, mobile number, password hash,
-              referral relationships, wallet records, payment details, proof
-              images, support messages and accepted-terms timestamp to operate
-              your account.
-            </p>
-            <h2>How it is used</h2>
-            <p>
-              Data supports registration, payment review, plan accounting,
-              rewards, notifications, account recovery and support.
-              Administrators can access member accounts to provide support.
-              Admin actions are logged. Never submit passwords, PINs or banking
-              OTPs in tickets or payment proof.
-            </p>
-            <h2>Records and support</h2>
-            <p>
-              Account and financial records are retained for operational
-              accounting and dispute resolution. Contact support on WhatsApp at
-              +92 337 9092183 for access, correction or privacy questions.
-              Financial records may need to remain available for accounting
-              purposes. Your public referral network shows member names and
-              joining dates, not their private payment information.
-            </p>
-          </>
-        ) : (
-          <>
-            <h2>Participation and risk</h2>
-            <p>
-              StockXEarn is privately operated. The operator personally invests
-              funds and manages listed plan payouts. Participation exposes funds
-              to investment losses and operator payment risk. Market returns are
-              not guaranteed. No exchange affiliation, broker protection or
-              regulatory approval is represented by the stock market imagery.
-            </p>
-            <h2>Deposits and purchases</h2>
-            <p>
-              Deposits are manually reviewed. A minimum deposit of $420
-              applies. Deposited funds can only purchase plans and cannot be
-              withdrawn. Review this restriction before sending funds. Plans can
-              be purchased multiple times. Each purchase retains its original
-              payout terms even when the plan catalogue changes.
-            </p>
-            <h2>Plan payouts</h2>
-            <p>
-              The default plans have 60 daily payouts beginning 24 hours after
-              purchase. The scheduler credits due payouts and catches up after
-              downtime. The final payout adjusts rounding to the listed total.
-              The purchase principal is not returned separately. Full financial
-              details appear after login and must be reviewed before purchase.
-            </p>
-            <h2>Withdrawals</h2>
-            <p>
-              Only earnings, commissions and rewards can be withdrawn. A
-              currently active plan and at least $100 are required. There is
-              no withdrawal fee. Requests are available 24/7, processed and paid
-              manually. Submission does not promise immediate payment. Rejected
-              requests return the reserved amount to the earnings wallet.
-            </p>
-            <h2>Referrals and rewards</h2>
-            <p>
-              A valid referral code is required. Approved deposits generate
-              three-level commissions at the rates in your workspace. Rate
-              changes affect future deposit approvals. Rank progress counts
-              lifetime plan purchase amounts for you and your first three
-              referral levels. Both targets must be met; each rank reward can be
-              claimed once. Unclaimed rank requirements may be updated by the
-              administrator; previously credited rewards are retained.
-            </p>
-            <p>
-              Community Reward permits one screenshot submission. Approval
-              credits $0.10 once. Rejection permanently locks the attempt.
-              Reward Codes are subject to expiry, availability, an
-              administrator-defined total claim limit and one redemption per
-              user per code. Rewards do not bypass withdrawal requirements.
-            </p>
-            <h2>Account access and support</h2>
-            <p>
-              You are responsible for keeping login details private.
-              Administrators may block access; scheduled payouts and eligible
-              referral commissions continue for blocked accounts. Only an
-              administrator can change the registered mobile number. Support may
-              verify ownership before issuing a temporary password.
-              Administrative access and balance adjustments are logged.
-            </p>
-          </>
-        )}
-        <p>
-          Support:{" "}
-          <a href="https://wa.me/923379092183" target="_blank" rel="noreferrer">
-            +92 337 9092183
-          </a>
-        </p>
-        <Link className="text-link" to="/">
-          ← Return home
+    <main className="legal-page legal-document">
+      <header className="legal-document-header">
+        <Brand />
+        <Link className="btn ghost small" to="/login">
+          ← Back to sign in
         </Link>
+      </header>
+      <article className="legal-document-card">
+        <div className="legal-document-hero">
+          <span className="eyebrow">STOCKXEARN / PARTICIPATION DOCUMENT</span>
+          <h1>{privacy ? "Privacy notice" : "Terms & conditions"}</h1>
+          <p>
+            {privacy
+              ? "How StockXEarn collects, uses, protects and retains account information."
+              : "The rules, wallet terms and participation risks that apply to your StockXEarn account."}
+          </p>
+        </div>
+        {privacy ? (
+          <div className="legal-section-grid">
+            <section>
+              <span>01</span>
+              <h2>Information collected</h2>
+              <p>
+                StockXEarn stores your name, mobile number, password hash,
+                referral relationships, wallet balances, transaction records,
+                accepted Terms timestamp, profile image, payment proof images,
+                support conversations and account activity needed to operate
+                the platform.
+              </p>
+            </section>
+            <section>
+              <span>02</span>
+              <h2>How information is used</h2>
+              <p>
+                Data supports registration, identity and account recovery,
+                payment review, deposit and withdrawal processing, plan
+                purchases, commissions, rewards, notifications and member
+                support. Administrator access is restricted to account and
+                platform operations.
+              </p>
+            </section>
+            <section>
+              <span>03</span>
+              <h2>Proof and payment data</h2>
+              <p>
+                Deposit and payment proof images are private operational
+                records. Payment account information is only displayed after
+                authentication where required. Never submit passwords, PINs,
+                banking OTPs or unrelated identity secrets.
+              </p>
+            </section>
+            <section>
+              <span>04</span>
+              <h2>Retention and security</h2>
+              <p>
+                Account and financial records may be retained for accounting,
+                dispute resolution, security and operational requirements.
+                Reasonable technical controls are used, but no internet service
+                can guarantee absolute security.
+              </p>
+            </section>
+            <section>
+              <span>05</span>
+              <h2>Visibility and sharing</h2>
+              <p>
+                Referral network views may show member names and joining dates.
+                Private balances, payment destinations and proof images are not
+                intended for public display. Data is not sold for advertising.
+              </p>
+            </section>
+            <section>
+              <span>06</span>
+              <h2>Access and support</h2>
+              <p>
+                Contact +92 337 9092183 through WhatsApp or in-platform support
+                for access, correction or privacy questions. Support may verify
+                account ownership before handling an account request.
+              </p>
+            </section>
+          </div>
+        ) : (
+          <div className="legal-section-grid">
+            <section>
+              <span>01</span>
+              <h2>Participation and risk</h2>
+              <p>
+                StockXEarn is privately operated. Listed plans and scheduled
+                payouts are participation products, not guaranteed bank
+                returns, brokerage services or exchange products. Participation
+                involves market, operator and payment risk.
+              </p>
+            </section>
+            <section>
+              <span>02</span>
+              <h2>Deposits and plan purchases</h2>
+              <p>
+                Deposits are manually reviewed. The minimum deposit is $3.
+                Approved deposit funds credit the USD deposit wallet and may
+                only be used to purchase plans. Deposited funds cannot be
+                withdrawn. Plans may be purchased multiple times.
+              </p>
+            </section>
+            <section>
+              <span>03</span>
+              <h2>Plan payouts</h2>
+              <p>
+                Plans provide scheduled daily payouts over the published term,
+                beginning 24 hours after purchase. The payout scheduler credits
+                due earnings and reconciles catch-up payouts. Each purchase
+                retains its original terms.
+              </p>
+            </section>
+            <section>
+              <span>04</span>
+              <h2>Withdrawals</h2>
+              <p>
+                The earnings, commission and reward balances may be withdrawn
+                only after a currently active plan is in place. The minimum
+                withdrawal is $1. There is no withdrawal fee. Requests are
+                reviewed and paid manually; approval is not immediate.
+              </p>
+            </section>
+            <section>
+              <span>05</span>
+              <h2>Commissions and ranks</h2>
+              <p>
+                A valid referral code is required at registration. Approved
+                deposits may generate commissions across the configured three
+                referral levels. Rank progress uses lifetime plan purchases
+                across personal and team levels. Both targets must be met before
+                each reward can be claimed once.
+              </p>
+            </section>
+            <section>
+              <span>06</span>
+              <h2>Community and reward codes</h2>
+              <p>
+                Community Reward allows one screenshot attempt; approval credits
+                $0.10 and rejection permanently locks the attempt. Reward Codes
+                have their displayed expiry and claim limit, and may only be
+                redeemed once by each member.
+              </p>
+            </section>
+            <section>
+              <span>07</span>
+              <h2>Account responsibility</h2>
+              <p>
+                Keep login credentials private and provide accurate account
+                information. Administrators may block access, reset credentials
+                after ownership verification and adjust balances with recorded
+                reasons. Scheduled payouts may continue according to applicable
+                purchase terms.
+              </p>
+            </section>
+            <section>
+              <span>08</span>
+              <h2>Changes and support</h2>
+              <p>
+                Plan catalogue changes do not alter existing purchases.
+                Commission and rank configurations may change for future
+                eligibility. Contact +92 337 9092183 through WhatsApp or
+                in-platform support for questions or disputes.
+              </p>
+            </section>
+          </div>
+        )}
+        <footer className="legal-document-footer">
+          <span>Last reviewed: November 2026</span>
+          <a href="https://wa.me/923379092183" target="_blank" rel="noreferrer">
+            WhatsApp support
+          </a>
+        </footer>
       </article>
-    </div>
+    </main>
   );
 }

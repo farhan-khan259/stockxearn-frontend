@@ -1738,10 +1738,11 @@ export function FAQ() {
   return (
     <>
       <PageHead
-        title="A little more clarity."
-        description="Answers to common questions about your account."
+        eyebrow="HELP & GUIDANCE"
+        title="Questions, answered clearly."
+        description="Find quick answers about plans, payments, rewards and account support."
       />
-      <section className="card">
+      <section className="card faq-list-card">
         <Load resource={r}>
           {(d) =>
             d.faqs.map((f, i) => (
