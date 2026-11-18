@@ -5792,3 +5792,224 @@ progress::-moz-progress-bar {
   }
 }
 
+/* Member panel mobile readability */
+@media (max-width: 800px) {
+  .member-workspace {
+    font-size: 14px;
+  }
+  .member-workspace .topbar {
+    height: 68px;
+  }
+  .member-workspace .page-content {
+    padding: 24px 12px 112px;
+  }
+  .member-workspace .page-head {
+    margin-bottom: 20px;
+  }
+  .member-workspace .page-head h1 {
+    font-size: clamp(28px, 8vw, 34px);
+    line-height: 1.1;
+  }
+  .member-workspace .page-head .eyebrow {
+    font-size: 9px;
+  }
+  .member-workspace .page-head p {
+    font-size: 13px;
+    line-height: 1.65;
+  }
+  .member-workspace .card {
+    border-radius: 14px;
+  }
+  .member-workspace .card h2,
+  .member-workspace .card h3 {
+    line-height: 1.25;
+  }
+  .member-workspace .card h2 {
+    font-size: 22px;
+  }
+  .member-workspace .card h3,
+  .member-workspace .plan-body h2,
+  .member-workspace .purchase-card h2 {
+    font-size: 18px;
+  }
+  .member-workspace .card p,
+  .member-workspace .plan-body > p,
+  .member-workspace .purchase-card > p,
+  .member-workspace .details-list,
+  .member-workspace .rank-card p,
+  .member-workspace .notice p,
+  .member-workspace .empty p {
+    font-size: 13px;
+    line-height: 1.65;
+  }
+  .member-workspace small,
+  .member-workspace .muted,
+  .member-workspace .plan-metrics span,
+  .member-workspace .plan-number,
+  .member-workspace .badge,
+  .member-workspace .next-payout {
+    font-size: 11px;
+  }
+  .member-workspace .btn,
+  .member-workspace .text-link,
+  .member-workspace .bottom-nav span {
+    font-size: 12px;
+  }
+  .member-workspace .bottom-nav span {
+    max-width: 68px;
+  }
+  .member-workspace .field > span,
+  .member-workspace label.field > span {
+    font-size: 12px;
+  }
+  .member-workspace input,
+  .member-workspace select,
+  .member-workspace textarea {
+    min-height: 48px;
+    font-size: 16px;
+  }
+  .member-workspace .wallet-label,
+  .member-workspace .currency-equivalent,
+  .member-workspace .wallet-hero p,
+  .member-workspace .wallet-deposit {
+    font-size: 12px;
+  }
+  .member-workspace .wallet-value {
+    font-size: clamp(34px, 10vw, 42px);
+  }
+  .member-workspace .wallet-balance small {
+    font-size: 11px;
+  }
+  .member-workspace .stat .row {
+    font-size: 11px;
+  }
+  .member-workspace .stat > strong {
+    font-size: clamp(20px, 6vw, 24px);
+  }
+  .member-workspace .plan-price,
+  .member-workspace .detail-price {
+    font-size: 32px;
+  }
+  .member-workspace .plan-metrics strong,
+  .member-workspace .details-list dd {
+    font-size: 13px;
+  }
+  .member-workspace .purchase-card {
+    padding: 0 16px 18px;
+  }
+  .member-workspace .purchase-card > img {
+    width: calc(100% + 32px);
+    margin: 0 -16px 18px;
+  }
+  .member-workspace .purchase-card .row small {
+    font-size: 11px;
+  }
+  .member-workspace .next-payout {
+    line-height: 1.45;
+  }
+  .member-workspace .ledger-table th,
+  .member-workspace .records-card th {
+    font-size: 10px;
+  }
+  .member-workspace .ledger-table td,
+  .member-workspace .records-card td {
+    font-size: 12px;
+  }
+  .member-workspace .ledger-table td strong,
+  .member-workspace .records-card td strong {
+    font-size: 13px;
+  }
+  .member-workspace .ledger-table td small,
+  .member-workspace .records-card td small {
+    font-size: 10px;
+  }
+  .member-workspace .table-wrap {
+    scrollbar-width: thin;
+  }
+  .member-workspace .faq-list-card {
+    padding: 8px 10px;
+  }
+  .member-workspace .member-faq summary {
+    font-size: 13px;
+    line-height: 1.45;
+  }
+  .member-workspace .member-faq p {
+    font-size: 13px;
+  }
+  .member-workspace .pager span,
+  .member-workspace .pager .btn {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 375px) {
+  .member-workspace .page-content {
+    padding-inline: 8px;
+  }
+  .member-workspace .page-head h1 {
+    font-size: 28px;
+  }
+  .member-workspace .page-head p {
+    font-size: 12px;
+  }
+  .member-workspace .card h2,
+  .member-workspace .purchase-card h2 {
+    font-size: 19px;
+  }
+  .member-workspace .card p,
+  .member-workspace .notice p,
+  .member-workspace .empty p {
+    font-size: 12px;
+  }
+  .member-workspace small,
+  .member-workspace .muted,
+  .member-workspace .plan-metrics span,
+  .member-workspace .next-payout {
+    font-size: 10.5px;
+  }
+  .member-workspace .bottom-nav span {
+    max-width: 58px;
+    font-size: 9px;
+  }
+  .member-workspace .btn {
+    font-size: 11px;
+  }
+  .member-workspace .stat .row {
+    font-size: 10px;
+  }
+  .member-workspace .stat > strong {
+    font-size: 20px;
+  }
+  .member-workspace .member-faq summary {
+    font-size: 12px;
+  }
+  .member-workspace .member-faq p {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 320px) {
+  .member-workspace .page-content {
+    padding-inline: 6px;
+  }
+  .member-workspace .page-head h1 {
+    font-size: 26px;
+  }
+  .member-workspace .page-head p {
+    font-size: 11px;
+  }
+  .member-workspace .card h2 {
+    font-size: 18px;
+  }
+  .member-workspace .bottom-nav span {
+    max-width: 52px;
+    font-size: 8.5px;
+  }
+  .member-workspace .stat .row {
+    font-size: 9.5px;
+  }
+  .member-workspace .stat > strong {
+    font-size: 18px;
+  }
+}
+
