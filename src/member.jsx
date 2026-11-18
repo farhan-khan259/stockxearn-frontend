@@ -817,7 +817,7 @@ export function Records({ type = "activity" }) {
         title={names[type]}
         description="Clear records, with timestamps shown in Pakistan time."
       />
-      <section className="card">
+      <section className="card records-card">
         <div className="row between">
           <h2>{title(type)}</h2>
           <select
@@ -884,7 +884,7 @@ export function Records({ type = "activity" }) {
                     <tbody>
                       {d.items.map((x) => (
                         <tr key={x._id}>
-                          <td>
+                          <td data-label="Amount">
                             {type === "deposits" ? (
                               <>
                                 <strong>{money(x.creditedAmount || Math.floor(x.amount / 280))}</strong>
@@ -899,7 +899,7 @@ export function Records({ type = "activity" }) {
                               </>
                             )}
                           </td>
-                          <td>
+                          <td data-label={type === "deposits" ? "Method / transaction ID" : "Account"}>
                             {title(
                               x.method || x.customInstitution || x.institution,
                             )}
@@ -907,11 +907,11 @@ export function Records({ type = "activity" }) {
                               {x.tid || `${x.accountName} · ${x.accountNumber}`}
                             </small>
                           </td>
-                          <td>
+                          <td data-label="Status">
                             <Badge status={x.status} />
                           </td>
-                          <td>{x.note || "Awaiting review"}</td>
-                          <td>{date(x.createdAt)}</td>
+                          <td data-label="Review note">{x.note || "Awaiting review"}</td>
+                          <td data-label="Date">{date(x.createdAt)}</td>
                         </tr>
                       ))}
                     </tbody>
@@ -1288,7 +1288,11 @@ export function RewardCodes() {
                     <tbody>
                       {d.items.map((x) => (
                         <tr key={x._id}>
-                          <td>{x.code?.code}</td>
+                          <td>
+                            <strong className="reward-code-value">
+                              {x.code?.code || "Code unavailable"}
+                            </strong>
+                          </td>
                           <td>{money(x.amount)}</td>
                           <td>{date(x.createdAt)}</td>
                         </tr>

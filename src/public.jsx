@@ -564,11 +564,11 @@ export function Auth({ register = false, admin = false }) {
                   />
                   <span>
                     I accept the{" "}
-                    <Link to="/terms" target="_blank">
+                    <Link to="/terms">
                       Terms & Conditions
                     </Link>{" "}
                     and have read the{" "}
-                    <Link to="/privacy" target="_blank">
+                    <Link to="/privacy">
                       Privacy Notice
                     </Link>
                     .
