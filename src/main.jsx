@@ -16,7 +16,7 @@ import "@fontsource/dm-serif-display/latin-400.css";
 import "@fontsource/dm-serif-display/latin-400-italic.css";
 import "./style.css";
 import { Provider, useSession } from "./core";
-import { Home, Auth, Forgot, Legal } from "./public";
+import { Auth, Forgot, Legal } from "./public";
 import { Shell } from "./layout";
 import {
   Overview,
@@ -90,7 +90,7 @@ function Guard({ admin = false }) {
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<Navigate to="/login" replace />} />
       <Route path="/login" element={<Auth />} />
       <Route path="/register" element={<Auth register />} />
       <Route path="/forgot-password" element={<Forgot />} />
