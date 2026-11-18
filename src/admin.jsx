@@ -10,7 +10,6 @@ import {
   ChartNoAxesCombined,
   ClipboardCheck,
   ShieldCheck,
-  Copy,
   Plus,
   Search,
   Settings,
@@ -42,49 +41,93 @@ import {
   Pager,
   Modal,
 } from "./core";
-import { EarningsChart } from "./member";
 import { PrivateImage } from "./layout";
 export function AdminOverview() {
-  const r = useData("/admin/overview"),
-    a = useAction();
+  const r = useData("/admin/overview");
   return (
     <>
       <PageHead
-        eyebrow="STOCKXEARN / CONTROL CENTRE"
-        title="The complete operating picture."
-        description="Real records. Clear decisions. Your platform at a glance."
-        action={
-          <Link className="btn" to="/admin/settings">
-            <Settings size={17} />
-            Platform settings
-          </Link>
-        }
+        eyebrow="ADMINISTRATION"
+        title="Platform overview"
+        description="Monitor accounts, requests, rewards and platform activity."
       />
       <Load resource={r}>
         {(d) => (
           <>
-            <div className="admin-welcome">
-              <div>
-                <span className="eyebrow">TODAY’S PERSPECTIVE</span>
-                <h2>Welcome to your control centre.</h2>
-                <p>
-                  Keep payments, members and the platform experience moving
-                  together.
-                </p>
+            <section className="admin-overview-section">
+              <span className="overview-kicker">TODAY’S ACTIVITY</span>
+              <div className="overview-today-grid">
+                {[
+                  ["Today deposit", money(d.chart?.at(-1)?.deposits || 0)],
+                  ["Today withdrawal", money(d.chart?.at(-1)?.withdrawals || 0)],
+                  ["Today investment", money(d.investment)],
+                  ["Registered members", d.users],
+                ].map(([label, value]) => (
+                  <div className="overview-stat" key={label}>
+                    <span>{label}</span>
+                    <strong>{value}</strong>
+                  </div>
+                ))}
               </div>
-              <img
-                src="/images/capital-prime.webp"
-                alt="Capital Prime financial illustration"
-              />
+            </section>
+
+            <section className="admin-overview-section">
+              <span className="overview-kicker">ALL-TIME TOTALS</span>
+              <h2 className="overview-section-title">Platform finances</h2>
+              <div className="overview-finance-grid">
+                <div className="overview-stat">
+                  <span>Total deposit</span>
+                  <strong>{money(d.deposits)}</strong>
+                </div>
+                <div className="overview-stat">
+                  <span>Total withdrawal</span>
+                  <strong>{money(d.withdrawals)}</strong>
+                </div>
+                <div className="overview-stat">
+                  <span>Total earnings paid</span>
+                  <strong>{money(d.earnings)}</strong>
+                </div>
+                <div className="overview-stat">
+                  <span>Total platform profit</span>
+                  <strong>{money(d.commissions)}</strong>
+                </div>
+                <div className="overview-stat overview-stat-wide">
+                  <span>Platform balance</span>
+                  <strong>{money(d.balances.deposits)}</strong>
+                </div>
+              </div>
+            </section>
+
+            <div className="overview-account-grid">
+              {[
+                ["Registered users", d.users, "users", Users],
+                ["Active accounts", d.users, "users", ShieldCheck],
+                ["Active paid plans", d.activePlans, "plans", BriefcaseBusiness],
+                ["Pending deposits", d.pendingDeposits, "deposits", ArrowDownLeft],
+                ["Approved deposits", money(d.deposits), "deposits", ArrowDownLeft],
+                ["Pending withdrawals", d.pendingWithdrawals, "withdrawals", ArrowUpRight],
+                ["Approved withdrawals", money(d.withdrawals), "withdrawals", ArrowUpRight],
+                ["Task rewards", money(d.rewards), "ranks", Gift],
+              ].map(([label, value, path, I]) => (
+                <Link
+                  className="overview-account-card"
+                  key={label}
+                  to={`/admin/${path}`}
+                >
+                  <span>{label}</span>
+                  <strong>{value}</strong>
+                  <I className="overview-account-icon" size={17} />
+                </Link>
+              ))}
             </div>
-            <Stats
-              items={[
-                ["Members", d.users, Users],
-                ["Active purchases", d.activePlans, BriefcaseBusiness],
-                ["Approved deposits", money(d.deposits), ArrowDownLeft],
-                ["Paid withdrawals", money(d.withdrawals), ArrowUpRight],
-              ]}
-            />
+
+            <div className="overview-commissions-row">
+              <div className="overview-stat">
+                <span>Commissions</span>
+                <strong>{money(d.commissions)}</strong>
+              </div>
+            </div>
+
             <div className="review-queue">
               {[
                 [
@@ -124,64 +167,6 @@ export function AdminOverview() {
                 </Link>
               ))}
             </div>
-            <div className="dashboard-columns">
-              <section className="card">
-                <div className="row between">
-                  <h2>Cashflow activity</h2>
-                  <Badge>Last 30 days · USD</Badge>
-                </div>
-                <EarningsChart data={d.chart} admin />
-                <small>
-                  Withdrawals show reserved amounts less refunds, not just
-                  completed payments.
-                </small>
-              </section>
-              <section className="card">
-                <span className="eyebrow">PLATFORM SUMMARY</span>
-                <h2>Wallets & distributions</h2>
-                <dl className="details-list">
-                  {[
-                    ["Deposit wallets", d.balances.deposits],
-                    ["Earnings wallets", d.balances.withdrawable],
-                    ["Total plan purchases", d.investment],
-                    ["Plan profits credited", d.earnings],
-                    ["Commissions credited", d.commissions],
-                    ["Rewards credited", d.rewards],
-                  ].map(([label, v]) => (
-                    <div key={label}>
-                      <dt>{label}</dt>
-                      <dd>{money(v)}</dd>
-                    </div>
-                  ))}
-                </dl>
-                <p className="muted">
-                  Wallet totals are platform liabilities, not a bank balance.
-                </p>
-              </section>
-            </div>
-            <section className="card row between wrap">
-              <div>
-                <span className="eyebrow">FIRST MEMBER INVITATION</span>
-                <h2>Administrator referral code</h2>
-                <code>{d.referralCode}</code>
-                <p>
-                  Use this code to invite the first members. New users receive
-                  their own referral code.
-                </p>
-              </div>
-              <button
-                className="btn ghost"
-                onClick={() =>
-                  a.run(
-                    () => navigator.clipboard.writeText(d.referralCode),
-                    "Code copied",
-                  )
-                }
-              >
-                <Copy size={17} />
-                Copy code
-              </button>
-            </section>
             <section className="card">
               <div className="row between">
                 <h2>Latest transactions</h2>
@@ -212,7 +197,8 @@ export function AdminUsers() {
   return (
     <>
       <PageHead
-        title="Your member community."
+        eyebrow="ADMINISTRATION"
+        title="Member management"
         description="Manage access, review account records and provide direct support."
       />
       <section className="card">
@@ -502,7 +488,8 @@ export function AdminPlans() {
   return (
     <>
       <PageHead
-        title="The plan collection."
+        eyebrow="ADMINISTRATION"
+        title="Plan catalogue"
         description="Changes apply to future purchases. Existing purchases retain their original terms."
       />
       <Load resource={r}>
@@ -658,7 +645,8 @@ export function AdminRanks() {
   return (
     <>
       <PageHead
-        title="Milestone configuration."
+        eyebrow="ADMINISTRATION"
+        title="Investor milestones"
         description="Both personal and three-level team investment targets must be met. Claimed rewards remain credited."
       />
       <section className="card">
@@ -787,6 +775,7 @@ export function Reviews({ type }) {
   return (
     <>
       <PageHead
+        eyebrow="ADMINISTRATION"
         title={labels[type]}
         description={
           type === "withdrawals"
@@ -797,29 +786,34 @@ export function Reviews({ type }) {
         }
       />
       <section className="card">
-        <div className="row between">
-          <h2>Review queue</h2>
-          <select
-            aria-label="Review status"
-            value={status}
-            onChange={(e) => {
-              setStatus(e.target.value);
-              setPage(1);
-            }}
-          >
-            <option value="">All requests</option>
-            {[
-              "pending",
-              type === "withdrawals" ? "paid" : "approved",
-              "rejected",
-            ].map((x) => (
-              <option key={x}>{x}</option>
-            ))}
-          </select>
-        </div>
         <Load resource={r}>
           {(d) => (
             <>
+              <div className="review-status-buttons" aria-label="Review status">
+                {[
+                  ["pending", "Pending"],
+                  [
+                    type === "withdrawals" ? "paid" : "approved",
+                    type === "withdrawals" ? "Paid" : "Approved",
+                  ],
+                  ["rejected", "Rejected"],
+                ].map(([value, label]) => (
+                  <button
+                    type="button"
+                    className={`review-status-button ${
+                      status === value ? "active" : ""
+                    }`}
+                    key={value}
+                    onClick={() => {
+                      setStatus(value);
+                      setPage(1);
+                    }}
+                  >
+                    <span>{label}</span>
+                    <b>{d.counts?.[value] || 0}</b>
+                  </button>
+                ))}
+              </div>
               {d.items.length ? (
                 <div className="table-wrap">
                   <table>
@@ -1040,7 +1034,8 @@ export function AdminLedger() {
   return (
     <>
       <PageHead
-        title="The transaction ledger."
+        eyebrow="ADMINISTRATION"
+        title="Transactions"
         description="Every wallet movement, with a permanent source reference."
       />
       <section className="card">
@@ -1090,7 +1085,8 @@ export function AdminCommissions() {
   return (
     <>
       <PageHead
-        title="Network distributions."
+        eyebrow="ADMINISTRATION"
+        title="Commissions"
         description="Commissions are paid only when a deposit is approved, using the configured rates at approval time."
         action={
           <Link className="btn" to="/admin/settings">
@@ -1125,7 +1121,8 @@ export function PaymentSettings() {
   return (
     <>
       <PageHead
-        title="Your platform, configured."
+        eyebrow="ADMINISTRATION"
+        title="Payment settings"
         description="Manage payment destinations, contact details and future deposit commission rates."
       />
       <Load resource={r}>{(s) => <SettingsForm initial={s} />}</Load>
@@ -1253,7 +1250,8 @@ export function AdminCodes() {
   return (
     <>
       <PageHead
-        title="Reward Codes."
+        eyebrow="ADMINISTRATION"
+        title="Reward codes"
         description="One redemption per user. The first successful claims receive the reward, up to your limit."
         action={
           <button className="btn" onClick={() => setOpen(true)}>
@@ -1400,7 +1398,8 @@ export function AdminContent() {
   return (
     <>
       <PageHead
-        title="Shape the StockXEarn experience."
+        eyebrow="ADMINISTRATION"
+        title="Content studio"
         description="Manage homepage copy, member announcements, welcome popups and FAQs."
       />
       <Load resource={r}>{(c) => <ContentEditor initial={c} />}</Load>
@@ -1622,7 +1621,8 @@ export function AdminTickets() {
   return (
     <>
       <PageHead
-        title="The support inbox."
+        eyebrow="ADMINISTRATION"
+        title="Support inbox"
         description="Conversations that keep your members connected."
       />
       <section className="card">
@@ -1700,7 +1700,8 @@ export function Reports() {
   return (
     <>
       <PageHead
-        title="A deeper financial perspective."
+        eyebrow="ADMINISTRATION"
+        title="Reports"
         description="Totals derived directly from the transaction ledger and purchase records."
       />
       <Load resource={r}>
@@ -1782,7 +1783,8 @@ export function AuditHistory() {
   return (
     <>
       <PageHead
-        title="Administrative accountability."
+        eyebrow="ADMINISTRATION"
+        title="Audit history"
         description="Append-only audit records for admin operations and actions performed through member access."
       />
       <section className="card">
