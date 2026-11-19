@@ -1036,7 +1036,7 @@ export function Ranks() {
               <Stats
                 items={[
                   ["Personal investment", money(d.personal), BriefcaseBusiness],
-                  ["Team investment · Levels 1–3", money(d.team), Users],
+                  ["Team investment", money(d.team), Users],
                 ]}
               />
               <div className="rank-grid">
