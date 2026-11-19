@@ -5487,6 +5487,43 @@ progress::-moz-progress-bar {
   }
 }
 
+@media (min-width: 801px) {
+  .member-workspace .bottom-nav {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 55;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    padding: 10px 24px calc(10px + env(safe-area-inset-bottom));
+    border-top: 1px solid var(--line);
+    background: #fffc;
+    backdrop-filter: blur(20px);
+  }
+  .member-workspace .bottom-nav > a,
+  .member-workspace .bottom-nav > button {
+    display: flex;
+    min-width: 0;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px;
+    background: none;
+    color: var(--muted);
+    font-size: 12px;
+  }
+  .member-workspace .bottom-nav > a.active {
+    color: var(--burgundy);
+  }
+  .member-workspace .page-content {
+    padding-bottom: 110px;
+  }
+  .member-workspace .workspace-footer {
+    margin-bottom: 75px;
+  }
+}
+
 .member-workspace .workspace-main {
   margin-left: 0;
 }
