@@ -2194,6 +2194,9 @@ progress::-moz-progress-bar {
 .modal > .row:first-child {
   margin-bottom: 25px;
 }
+.modal > .row:first-child > .icon-btn {
+  margin-left: auto;
+}
 .modal h2 {
   margin: 0;
   font-size: 22px;
@@ -4059,8 +4062,7 @@ progress::-moz-progress-bar {
   margin-bottom: 7px;
 }
 .member-workspace .page-head .eyebrow {
-  color: #9b5c73;
-  margin-bottom: 8px;
+  display: none;
 }
 .member-workspace .page-head p {
   color: #817278;
@@ -5482,6 +5484,78 @@ progress::-moz-progress-bar {
   .hero-foot,
   .brand-band {
     flex-wrap: wrap;
+  }
+}
+
+.member-workspace .workspace-main {
+  margin-left: 0;
+}
+.member-workspace .topbar > .row:first-child > .brand {
+  display: flex;
+}
+.settings-directory {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 235px), 1fr));
+  gap: 12px;
+}
+.settings-directory-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 235px), 1fr));
+  gap: 12px;
+  margin-top: 18px;
+}
+.settings-directory-link {
+  display: flex;
+  min-width: 0;
+  min-height: 76px;
+  align-items: center;
+  gap: 13px;
+  padding: 14px 16px;
+  border: 1px solid #eadfe3;
+  border-radius: 12px;
+  background: #fff;
+  color: #4b2938;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: left;
+  box-shadow: 0 8px 24px #42112d08;
+  transition:
+    border-color 0.18s,
+    box-shadow 0.18s,
+    transform 0.18s;
+}
+.settings-directory-link:hover {
+  border-color: #d7bdc5;
+  box-shadow: 0 14px 30px #42112d12;
+  transform: translateY(-2px);
+}
+.settings-directory-link > span:nth-child(2) {
+  flex: 1;
+}
+.settings-directory-icon {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  place-items: center;
+  border-radius: 10px;
+  background: #f7eaf0;
+  color: var(--burgundy);
+}
+.settings-directory-link > svg {
+  color: #a18d96;
+}
+@media (max-width: 800px) {
+  .member-workspace .settings-directory {
+    grid-template-columns: 1fr;
+    gap: 9px;
+  }
+  .member-workspace .settings-directory-actions {
+    grid-template-columns: 1fr;
+    gap: 9px;
+  }
+  .member-workspace .settings-directory-link {
+    min-height: 68px;
   }
 }
 

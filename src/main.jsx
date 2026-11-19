@@ -31,7 +31,7 @@ import {
   CommunityReward,
   RewardCodes,
   Profile,
-  Security,
+  SettingsPage,
   Notifications,
   Support,
   TicketThread,
@@ -80,11 +80,9 @@ function Guard({ admin = false }) {
   if (
     !admin &&
     user.mustChangePassword &&
-    location.pathname !== "/app/security"
+    location.pathname !== "/app/profile"
   )
-    return (
-      <Navigate to="/app/security" replace />
-    );
+    return <Navigate to="/app/profile" replace />;
   return <Shell admin={admin} />;
 }
 function App() {
@@ -116,7 +114,7 @@ function App() {
           element={<Records type="withdrawals" />}
         />
         <Route path="profile" element={<Profile />} />
-        <Route path="security" element={<Security />} />
+        <Route path="settings" element={<SettingsPage />} />
         <Route path="notifications" element={<Notifications />} />
         <Route path="support" element={<Support />} />
         <Route path="support/:id" element={<TicketThread />} />

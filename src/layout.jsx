@@ -36,7 +36,7 @@ import {
 } from "lucide-react";
 import { Brand } from "./public";
 import { useSession, useData, Modal, SafeLink } from "./core";
-const memberNav = [
+export const memberNav = [
   ["Overview", "", LayoutDashboard],
   ["Explore plans", "plans", ChartNoAxesCombined],
   ["My portfolio", "my-plans", BriefcaseBusiness],
@@ -51,7 +51,6 @@ const memberNav = [
   ["Deposit history", "deposits/history", ArrowDownLeft],
   ["Withdrawal history", "withdrawals/history", ArrowUpRight],
   ["My profile", "profile", UserRound],
-  ["Security", "security", ShieldCheck],
   ["Notifications", "notifications", Bell],
   ["Support", "support", LifeBuoy],
   ["FAQs", "faq", HelpCircle],
@@ -129,14 +128,14 @@ export function Shell({ admin = false }) {
         admin ? "admin-workspace" : "member-workspace"
       }`}
     >
-      {menu && (
+      {admin && menu && (
         <button
           className="sidebar-scrim"
           aria-label="Close menu"
           onClick={() => setMenu(false)}
         />
       )}
-      <aside className={`sidebar ${menu ? "is-open" : ""}`}>
+      {admin && <aside className={`sidebar ${menu ? "is-open" : ""}`}>
         <div className="sidebar-brand">
           <Brand />
           <button
@@ -190,7 +189,7 @@ export function Shell({ admin = false }) {
           </button>
           <small>© StockXEarn · All amounts in USD</small>
         </div>
-      </aside>
+      </aside>}
       <div className="workspace-main">
         {session.user?.impersonating && (
           <div className="impersonation">
@@ -227,7 +226,7 @@ export function Shell({ admin = false }) {
             ) : (
               <>
                 <Brand />
-                <Link to="/app/profile" className="avatar" title="My account">
+                <Link to="/app/settings" className="avatar" title="Settings">
                   {session.user?.avatar ? (
                     <PrivateImage
                       path={session.user.avatar}
@@ -319,10 +318,17 @@ export function Shell({ admin = false }) {
             </span>
           </NavLink>
         ))}
-        <button onClick={() => setMenu(true)}>
-          <Menu size={20} />
-          <span>More</span>
-        </button>
+        {admin ? (
+          <button onClick={() => setMenu(true)}>
+            <Menu size={20} />
+            <span>More</span>
+          </button>
+        ) : (
+          <NavLink to="/app/settings">
+            <Settings size={20} />
+            <span>Settings</span>
+          </NavLink>
+        )}
       </nav>
       {popup && content.data && (
         <Modal
