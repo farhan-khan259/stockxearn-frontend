@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import {
+  ArrowLeft,
   ArrowUpRight,
   ArrowRight,
   ShieldCheck,
@@ -445,7 +446,7 @@ export function Auth({ register = false, admin = false }) {
     );
   }
   return (
-    <div className="auth-page">
+    <div className={`auth-page${admin ? "" : " member-auth-page"}`}>
       <aside className="auth-art">
         <Brand />
         <img src="/images/hero.webp" alt="TickerNest financial architecture" />
@@ -679,9 +680,10 @@ export function Forgot() {
             <MessageCircle size={18} />
             Contact support
           </a>
-          <p className="auth-switch">
-            Remembered your password? <Link to="/login">Sign in</Link>
-          </p>
+          <Link to="/login" className="btn ghost recovery-back-btn">
+            <ArrowLeft size={17} />
+            Back to login
+          </Link>
         </div>
       </div>
     </div>
