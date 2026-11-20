@@ -471,6 +471,24 @@ export function Auth({ register = false, admin = false }) {
           <div className="auth-mobile-brand">
             <Brand />
           </div>
+          {!admin && (
+            <nav className="auth-tabs" aria-label="Account access">
+              <Link
+                to="/login"
+                className={!register ? "active" : ""}
+                aria-current={!register ? "page" : undefined}
+              >
+                Sign in
+              </Link>
+              <Link
+                to="/register"
+                className={register ? "active" : ""}
+                aria-current={register ? "page" : undefined}
+              >
+                Create account
+              </Link>
+            </nav>
+          )}
           <span className="eyebrow">
             {admin
               ? "ADMINISTRATION"
@@ -606,6 +624,15 @@ export function Auth({ register = false, admin = false }) {
                 </Link>
               )}
             </>
+          )}
+          {!admin && (
+            <div className="auth-security-note">
+              <LockKeyhole size={15} aria-hidden="true" />
+              <span>
+                Protected by secure sign-in and encrypted transport when served
+                over HTTPS.
+              </span>
+            </div>
           )}
         </div>
       </div>

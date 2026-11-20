@@ -6024,6 +6024,103 @@ progress::-moz-progress-bar {
   }
 }
 
+.auth-tabs,
+.auth-security-note {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .auth-page {
+    background:
+      radial-gradient(circle at 100% 0%, #f2dace80, transparent 28%),
+      #fbf8f6;
+  }
+  .auth-form {
+    min-height: 100dvh;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 18px 12px;
+    background: transparent;
+  }
+  .auth-inner {
+    width: 100%;
+    max-width: 460px;
+    margin: auto;
+    padding: 22px;
+    border: 1px solid var(--line);
+    border-radius: 17px;
+    background: #fffdfa;
+    box-shadow: var(--shadow);
+  }
+  .auth-mobile-brand {
+    min-height: 62px;
+    display: flex;
+    align-items: center;
+    margin: -22px -22px 18px;
+    padding: 10px 22px;
+    border-radius: 16px 16px 0 0;
+    background: #f7edf0;
+  }
+  .auth-mobile-brand .brand-logo {
+    width: 132px;
+    height: 42px;
+  }
+  .auth-tabs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4px;
+    margin-bottom: 22px;
+    padding: 4px;
+    border-radius: 11px;
+    background: #f7edf0;
+  }
+  .auth-tabs a {
+    display: flex;
+    min-height: 42px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .auth-tabs a.active {
+    background: var(--burgundy);
+    color: var(--white);
+    box-shadow: 0 3px 8px #7c0e4426;
+  }
+  .auth-inner > .auth-switch {
+    display: none;
+  }
+  .auth-security-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-top: 18px;
+    padding-top: 15px;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.55;
+  }
+  .auth-security-note svg {
+    flex: 0 0 auto;
+    margin-top: 1px;
+    color: var(--rose);
+  }
+}
+
+@media (max-width: 460px) {
+  .auth-inner {
+    padding: 20px;
+  }
+  .auth-mobile-brand {
+    margin: -20px -20px 18px;
+    padding-inline: 20px;
+  }
+}
+
 /* Member panel mobile readability */
 @media (max-width: 800px) {
   .member-workspace {
