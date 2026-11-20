@@ -73,7 +73,7 @@ class Boundary extends React.Component {
 function Guard({ admin = false }) {
   const { user, loading } = useSession(),
     location = useLocation();
-  if (loading) return <div className="loading">Connecting to StockXEarn…</div>;
+  if (loading) return <div className="loading">Connecting to TickerNest…</div>;
   if (!user) return <Navigate to={admin ? "/admin/login" : "/login"} replace />;
   if (admin && user.role !== "admin") return <Navigate to="/app" replace />;
   if (!admin && user.role === "admin") return <Navigate to="/admin" replace />;
@@ -144,7 +144,7 @@ function App() {
             <h1>Let’s find your way back.</h1>
             <p>This page is unavailable.</p>
             <Link className="btn" to="/">
-              Go to StockXEarn
+              Go to TickerNest
             </Link>
           </main>
         }

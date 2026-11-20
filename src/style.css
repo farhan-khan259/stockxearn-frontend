@@ -3517,7 +3517,7 @@ progress::-moz-progress-bar {
   }
 }
 
-/* Admin workspace — a quieter, operational layout built on the StockXEarn palette. */
+/* Admin workspace — a quieter, operational layout built on the TickerNest palette. */
 .admin-workspace {
   --admin-cyan: var(--burgundy);
   --admin-cyan-deep: var(--burgundy);

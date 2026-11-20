@@ -274,7 +274,7 @@ export function PageHead({
 }
 export function Empty({
   title: heading = "Nothing here yet",
-  text = "Your records will appear here as you use StockXEarn.",
+  text = "Your records will appear here as you use TickerNest.",
 }) {
   return (
     <div className="empty">

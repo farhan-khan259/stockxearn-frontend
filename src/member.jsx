@@ -1133,7 +1133,7 @@ export function CommunityReward() {
     <>
       <PageHead
         title="Join the conversation."
-        description="Follow the official StockXEarn WhatsApp channel and submit your proof once."
+        description="Follow the official TickerNest WhatsApp channel and submit your proof once."
       />
       <div className="form-grid">
         <section className="community-art">
@@ -1228,7 +1228,7 @@ export function RewardCodes() {
     <>
       <PageHead
         title="A little extra, unlocked."
-        eyebrow="STOCKXEARN / REWARD CODES"
+        eyebrow="TICKERNEST / REWARD CODES"
         description="Codes are available to all members. Claims are first come, first served."
       />
       <section className="card redeem-card">
@@ -1731,7 +1731,7 @@ export function TicketThread({ admin = false }) {
                 >
                   <div className="row between">
                     <strong>
-                      {m.role === "admin" ? "StockXEarn support" : "Member"}
+                      {m.role === "admin" ? "TickerNest support" : "Member"}
                     </strong>
                     <small>{date(m.createdAt)}</small>
                   </div>

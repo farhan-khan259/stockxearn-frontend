@@ -99,7 +99,7 @@ export function Shell({ admin = false }) {
       : null;
   const isLaunchNotice =
     content.data?.popupVersion === 2 &&
-    content.data?.popupTitle === "StockXEarn launches 20 November 2026";
+    content.data?.popupTitle === "TickerNest launches 20 November 2026";
   useEffect(() => {
     if (
       !admin &&
@@ -187,7 +187,7 @@ export function Shell({ admin = false }) {
             <LogOut size={18} />
             Sign out
           </button>
-          <small>© StockXEarn · All amounts in USD</small>
+          <small>© TickerNest · All amounts in USD</small>
         </div>
       </aside>}
       <div className="workspace-main">
@@ -375,7 +375,7 @@ export function Shell({ admin = false }) {
               {content.data.popupImage && (
                 <PrivateImage
                   path={content.data.popupImage}
-                  alt="Welcome to StockXEarn"
+                  alt="Welcome to TickerNest"
                 />
               )}
               <p>{content.data.popupBody}</p>

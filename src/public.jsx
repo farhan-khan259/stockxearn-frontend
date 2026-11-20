@@ -29,12 +29,12 @@ export function Brand({ light = false }) {
     <Link
       to="/"
       className={`brand ${light ? "light" : ""}`}
-      aria-label="StockXEarn home"
+      aria-label="TickerNest home"
     >
       <img
         className="brand-logo"
-        src="/images/logo-transparent.webp"
-        alt="StockXEarn"
+        src="/images/tickernest-logo.svg"
+        alt="TickerNest"
       />
     </Link>
   );
@@ -83,7 +83,7 @@ export function Home() {
         <Brand />
         <nav className={menu ? "open" : ""}>
           <a href="#about" onClick={() => setMenu(false)}>
-            About StockXEarn
+            About TickerNest
           </a>
           <a href="#markets" onClick={() => setMenu(false)}>
             Market essentials
@@ -116,7 +116,7 @@ export function Home() {
         <section className="hero">
           <div className="hero-copy">
             <span className="eyebrow">
-              <i /> STOCKXEARN / A NEW PERSPECTIVE
+              <i /> TICKERNEST / A NEW PERSPECTIVE
             </span>
             <h1>
               {c.data?.heroTitle ||
@@ -124,7 +124,7 @@ export function Home() {
             </h1>
             <p>
               {c.data?.heroSubtitle ||
-                "Meet StockXEarn. A privately operated investment platform with a clear member workspace, transparent records, and personal support."}
+                "Meet TickerNest. A privately operated investment platform with a clear member workspace, transparent records, and personal support."}
             </p>
             <div className="row wrap">
               <Link className="btn" to="/register">
@@ -132,7 +132,7 @@ export function Home() {
                 <ArrowUpRight size={18} />
               </Link>
               <a className="text-link" href="#about">
-                Get to know StockXEarn
+                Get to know TickerNest
                 <ArrowRight size={17} />
               </a>
             </div>
@@ -184,18 +184,18 @@ export function Home() {
               alt="Modern financial district architecture"
             />
             <div className="image-label">
-              StockXEarn <span>/ Our approach</span>
+              TickerNest <span>/ Our approach</span>
             </div>
           </div>
           <div>
-            <span className="eyebrow">GET TO KNOW STOCKXEARN</span>
+            <span className="eyebrow">GET TO KNOW TICKERNEST</span>
             <h2>
               A personal approach.
               <br />
               <em>A connected experience.</em>
             </h2>
             <p>
-              StockXEarn brings your investment activity, records and community
+              TickerNest brings your investment activity, records and community
               into one carefully designed member workspace.
             </p>
             <p>
@@ -239,7 +239,7 @@ export function Home() {
             </h2>
             <p>
               A little knowledge gives you a better starting point. These are
-              general market concepts, not a forecast of StockXEarn payouts.
+              general market concepts, not a forecast of TickerNest payouts.
             </p>
           </div>
           <div className="three-col">
@@ -351,7 +351,7 @@ export function Home() {
           <div>
             {[
               [
-                "What is StockXEarn?",
+                "What is TickerNest?",
                 "A privately operated platform for viewing investment plans, managing account activity and connecting with support. The operator personally invests funds and manages payouts.",
               ],
               [
@@ -402,7 +402,7 @@ export function Home() {
           <Link to="/privacy">Privacy</Link>
         </div>
         <small>
-          © {new Date().getFullYear()} StockXEarn. Investing involves risk.
+          © {new Date().getFullYear()} TickerNest. Investing involves risk.
           Illustrations are conceptual.
         </small>
       </footer>
@@ -437,7 +437,7 @@ export function Auth({ register = false, admin = false }) {
               ? { email: form.email, password: form.password, admin: true }
               : { phone: form.phone, password: form.password },
         }),
-      register ? "Welcome to StockXEarn" : null,
+      register ? "Welcome to TickerNest" : null,
       (d) => {
         session.login(d);
         navigate(d.user.role === "admin" ? "/admin" : "/app");
@@ -448,7 +448,7 @@ export function Auth({ register = false, admin = false }) {
     <div className="auth-page">
       <aside className="auth-art">
         <Brand />
-        <img src="/images/hero.webp" alt="StockXEarn financial architecture" />
+        <img src="/images/hero.webp" alt="TickerNest financial architecture" />
         <div>
           <span className="eyebrow">A CLEARER FINANCIAL PERSPECTIVE</span>
           <h1>
@@ -475,7 +475,7 @@ export function Auth({ register = false, admin = false }) {
             {admin
               ? "ADMINISTRATION"
               : register
-                ? "WELCOME TO STOCKXEARN"
+                ? "WELCOME TO TICKERNEST"
                 : "YOUR MEMBER WORKSPACE"}
           </span>
           <h1>
@@ -511,7 +511,7 @@ export function Auth({ register = false, admin = false }) {
               value={admin ? form.email : form.phone}
               onChange={change}
               autoComplete={admin ? "username" : "tel"}
-              placeholder={admin ? "admin@stockxearn.site" : "03XXXXXXXXX"}
+              placeholder={admin ? "Administrator email" : "03XXXXXXXXX"}
             />
             <div className="password-wrap">
               <Field
@@ -595,7 +595,7 @@ export function Auth({ register = false, admin = false }) {
           {!admin && (
             <>
               <p className="auth-switch">
-                {register ? "Already a member?" : "New to StockXEarn?"}{" "}
+                {register ? "Already a member?" : "New to TickerNest?"}{" "}
                 <Link to={register ? "/login" : "/register"}>
                   {register ? "Sign in" : "Create account"}
                 </Link>
@@ -618,7 +618,7 @@ export function Forgot() {
     <div className="auth-page recovery-page">
       <aside className="auth-art">
         <Brand />
-        <img src="/images/hero.webp" alt="StockXEarn account recovery" />
+        <img src="/images/hero.webp" alt="TickerNest account recovery" />
         <div>
           <span className="eyebrow">ACCOUNT RECOVERY</span>
           <h1>
@@ -645,7 +645,7 @@ export function Forgot() {
           </p>
           <a
             className="btn recovery-button"
-            href={`https://wa.me/${(s.data?.supportPhone || "+923379092183").replace(/\D/g, "")}?text=I%20need%20help%20resetting%20my%20StockXEarn%20password`}
+            href={`https://wa.me/${(s.data?.supportPhone || "+923379092183").replace(/\D/g, "")}?text=I%20need%20help%20resetting%20my%20TickerNest%20password`}
             target="_blank"
             rel="noreferrer"
           >
@@ -671,12 +671,12 @@ export function Legal({ privacy = false }) {
       </header>
       <article className="legal-document-card">
         <div className="legal-document-hero">
-          <span className="eyebrow">STOCKXEARN / PARTICIPATION DOCUMENT</span>
+          <span className="eyebrow">TICKERNEST / PARTICIPATION DOCUMENT</span>
           <h1>{privacy ? "Privacy notice" : "Terms & conditions"}</h1>
           <p>
             {privacy
-              ? "How StockXEarn collects, uses, protects and retains account information."
-              : "The rules, wallet terms and participation risks that apply to your StockXEarn account."}
+              ? "How TickerNest collects, uses, protects and retains account information."
+              : "The rules, wallet terms and participation risks that apply to your TickerNest account."}
           </p>
         </div>
         {privacy ? (
@@ -685,7 +685,7 @@ export function Legal({ privacy = false }) {
               <span>01</span>
               <h2>Information collected</h2>
               <p>
-                StockXEarn stores your name, mobile number, password hash,
+                TickerNest stores your name, mobile number, password hash,
                 referral relationships, wallet balances, transaction records,
                 accepted Terms timestamp, profile image, payment proof images,
                 support conversations and account activity needed to operate
@@ -748,7 +748,7 @@ export function Legal({ privacy = false }) {
               <span>01</span>
               <h2>Participation and risk</h2>
               <p>
-                StockXEarn is privately operated. Listed plans and scheduled
+                TickerNest is privately operated. Listed plans and scheduled
                 payouts are participation products, not guaranteed bank
                 returns, brokerage services or exchange products. Participation
                 involves market, operator and payment risk.
