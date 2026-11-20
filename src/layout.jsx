@@ -98,8 +98,8 @@ export function Shell({ admin = false }) {
       ? `sx-popup-${session.user._id}-${content.data.popupVersion}`
       : null;
   const isLaunchNotice =
-    content.data?.popupVersion === 2 &&
-    content.data?.popupTitle === "TickerNest launches 20 November 2026";
+    content.data?.popupVersion === 3 &&
+    content.data?.popupTitle === "TickerNest launches 21 November 2026";
   useEffect(() => {
     if (
       !admin &&
@@ -338,8 +338,8 @@ export function Shell({ admin = false }) {
           {isLaunchNotice ? (
             <div className="launch-popup">
               <p className="launch-popup-kicker">Platform launch</p>
-              <time className="launch-popup-date" dateTime="2026-11-20">
-                <strong>20</strong>
+              <time className="launch-popup-date" dateTime="2026-11-21">
+                <strong>21</strong>
                 <span>November</span>
                 <b>2026</b>
               </time>
