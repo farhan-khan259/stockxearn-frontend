@@ -787,7 +787,7 @@ export function Legal({ privacy = false }) {
               <span>02</span>
               <h2>Deposits and plan purchases</h2>
               <p>
-                Deposits are manually reviewed. The minimum deposit is $3.
+                Deposits are manually reviewed. The minimum deposit is $1.
                 Approved deposit funds credit the USD deposit wallet and may
                 only be used to purchase plans. Deposited funds cannot be
                 withdrawn. Plans may be purchased multiple times.

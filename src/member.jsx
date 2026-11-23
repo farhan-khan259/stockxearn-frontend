@@ -623,7 +623,7 @@ export function DepositPage() {
                   label="Amount (USD)"
                   name="amount"
                   type="number"
-                  min={3}
+                  min={1}
                   max={10000000}
                   step="0.01"
                   value={f.amount}

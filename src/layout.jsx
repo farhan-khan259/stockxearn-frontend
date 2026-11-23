@@ -347,7 +347,7 @@ export function Shell({ admin = false }) {
               <div className="launch-popup-facts" aria-label="Launch details">
                 <div>
                   <span>Minimum deposit</span>
-                  <strong>$3.00</strong>
+                  <strong>$1.00</strong>
                 </div>
                 <div>
                   <span>Minimum withdrawal</span>
