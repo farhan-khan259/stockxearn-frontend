@@ -392,6 +392,7 @@ export function PlanDetail() {
                 <span className="eyebrow">INVESTMENT SUMMARY</span>
                 {p.locked && <Badge status="rejected">Coming soon</Badge>}
                 <strong className="detail-price">{money(p.price)}</strong>
+                <p className="muted">{p.description}</p>
                 <dl className="details-list">
                   <div>
                     <dt>Daily payout</dt>
